@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Filme</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+    <div class="container">
+    <form action="<%= filme._id ? "/ator/atualizar" : "/filme" %>" method="post">
+
+        <input type="hidden" name="_id" value="<%= filme._id %>">
+
+        <h1><%= filme._id ? "Atualizar" : "Cadastrar" %> Filme</h1>
+
+        <div>
+        <label for="txtCdg" class="form-label">Código do filme:</label>
+        <input type="text" name="cdg" class="form-control" required value="<%= filme.cdg %>">
+    </div>
+        <div>
+        <label for="txtNomefilme" class="form-label">Nome do Filme:</label>
+        <input type="text" name="nomefilme" class="form-control" required value="<%= filme.nomefilme %>">
+    </div>
+        <div>
+        <label for="txtAnolancamento" class="form-label">Ano de lançamento:</label>
+        <input type="text" name="anolancamento" class="form-control" required value="<%= filme.anolancamento %>">
+    </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button required>
+            <a href="/filme" class="btn btn-primary">Voltar</a>
+    </form>
+
+</div>
+    <%- include("../partials/rodape.ejs") %>
+
+</body>
+</html>

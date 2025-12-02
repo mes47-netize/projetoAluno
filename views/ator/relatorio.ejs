@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório dos Atores</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+    <div class="container">
+    <% if(status == "1"){ %>
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        Ator cadastrado com <b>sucesso!</b></div>
+    <% } %>
+
+    <% if(status == "2"){ %>
+        <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        Ator removido com <b>sucesso!</b></div>
+    <% } %>
+
+    <% if(status == "3"){ %>
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        Ator atualizado com <b>sucesso!</b></div>
+    <% } %>
+
+    <a href="/ator/cadastrar" class="btn btn-success">Cadastrar novo ator</a>
+    
+    <h1>Relatório dos atores</h1>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Cpf</th>
+                    <th>Nome do ator</th>
+                    <th>Biografia</th>
+                    <th>Detalhar</th>
+                    <th>Atualizar</th>
+                    <th>Excluir</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            <% ator.forEach(ator => { %>
+            <tr>
+                <td><%= ator.cpf %></td>
+            
+                <td><%= ator.nomeator %></td>
+           
+                <td><%= ator.biografia %></td>
+
+                <td><a href="/ator/ <%=ator.cpf%>" class="btn btn-info">Detalhar</a></td>
+
+                <td><a href="/ator/atualizar/<%=ator.cpf%>" class="btn btn-warning">Atualizar</a></td>
+
+                <td><a href="/ator/excluir/<%=ator.cpf%>" onclick="return confirm('Deseja realmente excluir')" class="btn btn-danger">Excluir</a></td>
+
+            </tr>
+            <%}); %>
+        </tbody>
+        </table>
+
+
+    <a href="/" class="btn btn-primary">Voltar</a>
+</div>
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

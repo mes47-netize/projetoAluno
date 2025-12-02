@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+    <div class="container">
+
+    <div>
+        Cpf: <%= ator.cpf %>
+    </div>
+    <div>
+        Nome do ator: <%= ator.nomeator %>
+    </div>
+    <div>
+        Biografia: <%= ator.biografia %>
+    </div>
+    <a href="/ator" class="btn btn-primary">Voltar</a>
+</div>
+    <%-include("../partials/rodape.ejs") %>
+</body>
+</html>

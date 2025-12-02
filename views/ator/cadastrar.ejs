@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Ator</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+    <div class="container">
+    <form action="<%= ator._id ? "/ator/atualizar" : "/ator" %>" method="post">
+
+        <input type="hidden" name="_id" value="<%= ator._id %>">
+
+        <h1><%= ator._id ? "Atualizar" : "Cadastrar" %> Ator</h1>
+
+        <div>
+        <label for="txtCpf" class="form-label">Cpf:</label>
+        <input type="text" name="cpf" class="form-control" required value="<%= ator.cpf %>">
+    </div>
+        <div>
+        <label for="txtNomeator" class="form-label">Nome do ator:</label>
+        <input type="text" name="nomeator" class="form-control" required value="<%= ator.nomeator %>">
+    </div>
+        <div>
+        <label for="txtBiografia" class="form-label">Biografia:</label>
+        <input type="text" name="biografia" class="form-control" required value="<%= ator.biografia %>">
+    </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button required>
+            <a href="/ator" class="btn btn-primary">Voltar</a>
+    </form>
+
+</div>
+    <%- include("../partials/rodape.ejs") %>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de alunos</title>
+    <title>Relatório de Filmes</title>
     <%- include("../partials/cabecalho.ejs") %>
 </head>
 <body>
@@ -11,31 +11,31 @@
     <% if(status == "1"){ %>
         <div class="alert alert-success alert-dismissible">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        Aluno cadastrado com <b>sucesso!</b></div>
+        Filme cadastrado com <b>sucesso!</b></div>
     <% } %>
 
     <% if(status == "2"){ %>
         <div class="alert alert-danger alert-dismissible">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        Aluno removido com <b>sucesso!</b></div>
+        Filme removido com <b>sucesso!</b></div>
     <% } %>
 
     <% if(status == "3"){ %>
         <div class="alert alert-success alert-dismissible">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        Aluno atualizado com <b>sucesso!</b></div>
+        Filme atualizado com <b>sucesso!</b></div>
     <% } %>
 
-    <a href="/alunos/cadastrar" class="btn btn-success">Cadastrar novo aluno</a>
+    <a href="/filme/cadastrar" class="btn btn-success">Cadastrar novo filme</a>
     
-    <h1>Relatório de alunos</h1>
+    <h1>Relatório de filmes</h1>
 
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Matricula</th>
-                    <th>Nome</th>
-                    <th>Curso</th>
+                    <th>Código</th>
+                    <th>Nome do filme</th>
+                    <th>Ano de lançamento</th>
                     <th>Detalhar</th>
                     <th>Atualizar</th>
                     <th>Excluir</th>
@@ -43,19 +43,19 @@
                 </tr>
             </thead>
             <tbody>
-            <% alunos.forEach(aluno => { %>
+            <% filme.forEach(filme => { %>
             <tr>
-                <td><%= aluno.matricula %></td>
+                <td><%= filme.cdg %></td>
             
-                <td><%= aluno.nome %></td>
+                <td><%= filme.nomefilme %></td>
            
-                <td><%= aluno.curso %></td>
+                <td><%= filme.anolancamento %></td>
 
-                <td><a href="/alunos/ <%=aluno.matricula%>" class="btn btn-info">Detalhar</a></td>
+                <td><a href="/filme/ <%=filme.cdg%>" class="btn btn-info">Detalhar</a></td>
 
-                <td><a href="/alunos/atualizar/<%=aluno.matricula%>" class="btn btn-warning">Atualizar</a></td>
+                <td><a href="/filme/atualizar/<%=filme.cdg%>" class="btn btn-warning">Atualizar</a></td>
 
-                <td><a href="/alunos/excluir/<%=aluno.matricula%>" onclick="return confirm('Deseja realmente excluir')" class="btn btn-danger">Excluir</a></td>
+                <td><a href="/filme/excluir/<%=filme.cdg%>" onclick="return confirm('Deseja realmente excluir')" class="btn btn-danger">Excluir</a></td>
 
             </tr>
             <%}); %>
