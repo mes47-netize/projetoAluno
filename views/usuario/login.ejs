@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+        <% if(status == "1"){ %>
+            <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            E-mail e/ou Senha <b>incorreto(s)!</b></div>
+        <% } %>
+
+        <h1>Login Usuario</h1>
+    <form action="/usuarios/login" method="post">
+
+        <div>
+        <label for="txtEmail" class="form-label">Email:</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+
+        <div>
+        <label for="txtSenha" class="form-label">Senha:</label>
+        <input type="password" name="senha" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Login</button required>
+    <a href="/usuarios/cadastrar" class="btn btn-primary">Criar Cadastro</a>
+
+    </form>
+
+    </div>
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

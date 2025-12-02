@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de usuarios</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+    <div class="container">
+    <% if(status == "1"){ %>
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        Usuario cadastrado com <b>sucesso!</b></div>
+    <% } %>
+
+    <% if(status == "2"){ %>
+        <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        Usuario removido com <b>sucesso!</b></div>
+    <% } %>
+
+    <% if(status == "3"){ %>
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        Usuario atualizado com <b>sucesso!</b></div>
+    <% } %>
+
+    <a href="/usuarios/cadastrar" class="btn btn-success">Cadastrar novo usuario</a>
+    
+    <h1>Relatório de usuarios</h1>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Detalhar</th>
+                    <th>Atualizar</th>
+                    <th>Excluir</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            <% usuarios.forEach(usuario => { %>
+            <tr>
+                <td><%= usuario.nome %></td>
+            
+                <td><%= usuario.email %></td>
+           
+
+                <td><a href="/usuarios/<%=usuario._id%>" class="btn btn-info">Detalhar</a></td>
+
+                <td><a href="/usuarios/atualizar/<%=usuario._id%>" class="btn btn-warning">Atualizar</a></td>
+
+                <td><a href="/usuarios/excluir/<%=usuario._id%>" onclick="return confirm('Deseja realmente excluir')" class="btn btn-danger">Excluir</a></td>
+
+            </tr>
+            <%}); %>
+        </tbody>
+        </table>
+
+
+    <a href="/" class="btn btn-primary">Voltar</a>
+</div>
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

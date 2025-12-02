@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head></head>
+<body>
+    <div class="container">
+    <form action="<%= usuario._id ? "/usuarios/atualizar" : "/usuarios" %>" method="post">
+
+        <input type="hidden" name="_id" value="<%= usuario._id %>">
+
+        <h1><%= usuario._id ? "Atualizar" : "Cadastrar" %> Usuario</h1>
+
+        <div>
+        <label for="txtNome" class="form-label">Nome:</label>
+        <input type="text" name="nome" class="form-control" required value="<%= usuario.nome %>">
+    </div>
+        <div>
+        <label for="txtEmail" class="form-label">Email:</label>
+        <input type="text" name="email" class="form-control" required value="<%= usuario.email %>">
+    </div>
+        <div>
+        <label for="txtSenha" class="form-label">Senha:</label>
+        <input type="password" name="senha" class="form-control" required>
+    </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button required>
+            <a href="/usuarios/login" class="btn btn-primary">Já possui conta?</a>
+
+    </form>
+
+</div>
+    <%- include("../partials/rodape.ejs") %>
+
+</body>
+</html>
